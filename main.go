@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/m/v2/revblock/Advent-of-Code-2023/day1"
+	"github.com/m/v2/revblock/Advent-of-Code-2023/day2"
 	"github.com/m/v2/revblock/Advent-of-Code-2023/day3"
 )
 
@@ -22,6 +23,14 @@ func main() {
 
 	if strings.TrimSuffix(dayPart, "\n") == "1B" {
 		day1.B()
+	}
+
+	if strings.TrimSuffix(dayPart, "\n") == "2A" {
+		day2.A()
+	}
+
+	if strings.TrimSuffix(dayPart, "\n") == "2B" {
+		day2.B()
 	}
 
 	if strings.TrimSuffix(dayPart, "\n") == "3A" {
