@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-func NewFileReader(filename string) (*bufio.Scanner, *os.File) {
+func NewFileScanner(filename string) (*bufio.Scanner, *os.File) {
 	file, _ := os.Open(filename)
 	scanner := bufio.NewScanner(file)
 

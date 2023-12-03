@@ -10,7 +10,7 @@ import (
 
 func A() {
 
-	scanner, file := input.NewFileReader("./data/1.txt")
+	scanner, file := input.NewFileScanner("./data/1.txt")
 	defer file.Close()
 
 	// Any digit character

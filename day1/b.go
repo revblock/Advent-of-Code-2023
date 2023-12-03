@@ -19,7 +19,7 @@ var wordValues = []string{
 
 func B() {
 
-	scanner, file := input.NewFileReader("./data/1.txt")
+	scanner, file := input.NewFileScanner("./data/1.txt")
 	defer file.Close()
 
 	result := 0
