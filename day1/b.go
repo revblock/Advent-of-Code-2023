@@ -27,6 +27,8 @@ func B() {
 	for scanner.Scan() {
 		line := scanner.Text()
 
+		// Split line into tokens to check against accepted values
+		// Can't use Regex because Go doesn't support overlapping matches
 		tokens := tokenize(line, 5)
 
 		var firstDigit string
@@ -35,10 +37,12 @@ func B() {
 
 			var digit string
 
+			// Check raw number values
 			if numberIndex := slices.Index(numberValues, tokens[i]); numberIndex != -1 {
 				digit = numberValues[numberIndex]
 			}
 
+			// If not raw number, check for word values and convert to number
 			if digit == "" {
 				if wordIndex := slices.Index(wordValues, tokens[i]); wordIndex != -1 {
 					digit = numberValues[wordIndex+1]
@@ -46,10 +50,12 @@ func B() {
 			}
 
 			if digit != "" {
+				// Save the first digit if it hasn't already been found
 				if firstDigit == "" {
 					firstDigit = digit
 				}
 
+				// If current value is a digit, save it for later
 				lastDigit = digit
 			}
 		}
@@ -62,6 +68,7 @@ func B() {
 	fmt.Println(result)
 }
 
+// Tokenize string into chunks of maxTokenLength
 func tokenize(s string, maxTokenLength int) []string {
 
 	chars := strings.Split(s, "")
